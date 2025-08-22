@@ -39,10 +39,15 @@ Create a `.env.local` file in the root directory and add your environment variab
 # NextAuth Configuration
 NEXTAUTH_URL=http://localhost:3000
 NEXTAUTH_SECRET=your-secret-key-here
+AUTH_KEY=your-auth-key
+NEXT_PUBLIC_BASE_MODEL_URL=https://api.example.com/v1/models
 
 # Google OAuth Configuration
 GOOGLE_CLIENT_ID=your-google-client-id-here
 GOOGLE_CLIENT_SECRET=your-google-client-secret-here
+GOOGLE_SERVICE_ACCOUNT_EMAIL=your-service-account-email
+GOOGLE_PRIVATE_KEY=your-private-key
+SPREADSHEET_ID=your-spreadsheet-id
 ```
 
 You can generate a secret key using:
