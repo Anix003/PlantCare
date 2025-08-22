@@ -1,11 +1,12 @@
-# NextAuth with Google Sheets Integration
+# Plant Disease Detection System
 
-This is a [Next.js](https://nextjs.org) project with Google authentication and Google Sheets integration, bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a [Next.js](https://nextjs.org) project for detecting plant diseases and pests using AI-powered analysis, integrated with Google Sheets and NextAuth.js.
 
 ## Features
 
+- 🌱 AI-powered plant disease and pest detection
 - 🔐 Google OAuth authentication with NextAuth.js
-- 📊 Google Sheets integration
+- 📊 Google Sheets integration for data management
 - 🎨 Tailwind CSS styling
 - 📱 Responsive design
 - 🔄 Session management and protection
@@ -59,34 +60,156 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## API Documentation
+
+### Endpoints
+
+- `GET /` - Homepage
+- `GET /health` - API health check
+- `POST /detect` - Analyze plant image
+
+### Example: Detect Plant Issues
+
+Send a POST request to `/detect` with an image file:
+
+```bash
+curl -X POST -F "file=@plant.jpg" http://plantcare-ai.vercel.app/detect
+```
+
+### Response Format
+
+```json
+{
+  "detected": true,
+  "valid": true,
+  "blurred": false,
+  "obj": "plant",
+  "issues": [
+    {
+      "type": "disease",
+      "name": "Powdery Mildew",
+      "confidence": 92,
+      "description": "Fungal infection appearing as white powdery spots",
+      "treatment": "Apply fungicide and improve air circulation",
+      "bbox": [10, 20, 30, 40]
+    }
+  ],
+  "processed_image": "data:image/jpeg;base64,..."
+}
+```
+
 ## Project Structure
 
 ```
-src/
-├── app/
-│   ├── api/auth/[...nextauth]/route.js    # NextAuth API route
-│   ├── dashboard/page.js                   # Protected dashboard page
-│   ├── login/page.js                      # Login page
-│   ├── layout.js                          # Root layout with AuthProvider
-│   └── page.js                            # Home page (redirects)
-├── components/
-│   ├── AuthProvider.jsx                   # Session provider wrapper
-│   └── login.jsx                          # Login component
-└── ...
+v1.1/
+├─ assets/
+│  ├─ img/
+│  └─ pdf/
+├─ public/
+│  ├─ img/
+│  │  └─ image.png
+│  ├─ file.svg
+│  ├─ globe.svg
+│  ├─ next.svg
+│  ├─ vercel.svg
+│  └─ window.svg
+├─ src/
+│  ├─ app/
+│  │  ├─ api/
+│  │  │  ├─ apikey/
+│  │  │  │  ├─ delete/
+│  │  │  │  │  └─ route.js
+│  │  │  │  ├─ generate/
+│  │  │  │  │  └─ route.js
+│  │  │  │  └─ route.js
+│  │  │  ├─ auth/
+│  │  │  │  ├─ [...nextauth]/
+│  │  │  │  │  └─ route.js
+│  │  │  │  └─ signup/
+│  │  │  │     └─ route.js
+│  │  │  ├─ check/
+│  │  │  │  └─ route.js
+│  │  │  ├─ detect/
+│  │  │  │  └─ route.js
+│  │  │  ├─ getdata/
+│  │  │  │  └─ route.js
+│  │  │  ├─ ready/
+│  │  │  │  └─ route.js
+│  │  │  └─ signup/
+│  │  │     └─ route.js
+│  │  ├─ dashboard/
+│  │  │  └─ page.js
+│  │  ├─ editor/
+│  │  │  ├─ markdown/
+│  │  │  │  └─ page.js
+│  │  │  ├─ md/
+│  │  │  │  └─ page.js
+│  │  │  └─ page.jsx
+│  │  ├─ health/
+│  │  │  └─ page.jsx
+│  │  ├─ home/
+│  │  │  └─ page.js
+│  │  ├─ login/
+│  │  │  └─ page.js
+│  │  ├─ playground/
+│  │  │  └─ page.js
+│  │  ├─ ready/
+│  │  │  └─ page.jsx
+│  │  ├─ signup/
+│  │  │  └─ page.js
+│  │  ├─ test/
+│  │  │  └─ page.js
+│  │  ├─ favicon.ico
+│  │  ├─ globals.css
+│  │  ├─ layout.js
+│  │  ├─ not-found.js
+│  │  └─ page.js
+│  ├─ components/
+│  │  ├─ ui/
+│  │  │  ├─ alert-dialog.jsx
+│  │  │  ├─ alert.jsx
+│  │  │  ├─ badge.jsx
+│  │  │  ├─ button.jsx
+│  │  │  ├─ card.jsx
+│  │  │  └─ tooltip.jsx
+│  │  ├─ AuthProvider.jsx
+│  │  ├─ Footer.jsx
+│  │  ├─ login.jsx
+│  │  └─ Navbar.jsx
+│  ├─ lib/
+│  │  ├─ GoogleSheet.js
+│  │  ├─ GoogleSpreadSheet.js
+│  │  └─ utils.js
+│  └─ services/
+│     ├─ AddGoogleUser.js
+│     ├─ AddNewUser.js
+│     ├─ FetchApiKey.js
+│     ├─ FetchCredentials.js
+│     ├─ FindGoogleUser.js
+│     ├─ FindUser.js
+│     ├─ GenerateApiKey.js
+│     ├─ GetLastRowIndex.js
+│     └─ ValidateApiKey.js
+├─ .env.example
+├─ .env.local
+├─ .gitignore
+├─ components.json
+├─ eslint.config.mjs
+├─ jsconfig.json
+├─ LICENSE
+├─ next.config.mjs
+├─ package-lock.json
+├─ package.json
+├─ postcss.config.mjs
+└─ README.md
 ```
-
-## How It Works
-
-1. **Authentication Flow**: Users can sign in with Google OAuth or traditional email/password
-2. **Session Management**: NextAuth.js handles session management and token refresh
-3. **Route Protection**: Dashboard and other protected routes redirect unauthenticated users to login
-4. **Google Sheets Integration**: Ready for Google Sheets API integration with proper authentication
 
 ## Pages
 
-- `/` - Home page that redirects to dashboard (if authenticated) or login
+- `/` - Home page with information and links
 - `/login` - Login page with Google sign-in button
 - `/dashboard` - Protected dashboard page showing user information
+- `/playground` - Test route for additional features
 
 ## Learn More
 
