@@ -202,7 +202,7 @@ export default function PlantDiseaseDetector() {
   return (
     <main className="flex min-h-screen flex-col items-center p-8 bg-gradient-to-br from-green-50 to-green-100">
       <h1 className="text-4xl font-extrabold mb-8 text-green-900 text-center">
-        PlantCare Playground
+        Haritra Playground
       </h1>
 
       <div className="w-full max-w-4xl p-8 bg-white rounded-2xl shadow-2xl">

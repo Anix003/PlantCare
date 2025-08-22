@@ -308,7 +308,7 @@ export default function Home() {
             <div className="bg-gray-100 p-4 rounded-lg overflow-x-auto">
               <pre className="text-sm text-gray-800">
                 curl -X POST -F &quot;file=@plant.jpg&quot;
-                http://plantcare-ai.vercel.app/detect
+                http://haritra-ai.vercel.app/detect
               </pre>
             </div>
 

@@ -134,7 +134,7 @@ const Navbar = ({ className }) => {
                 <Hash className="w-5 h-5 text-white" />
               </div>
               <h1 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                {auth ? pathName.startsWith("/dashboard") ? `PlantCare Dashboard` : `PlantCare` : `PlantCare-AI`}
+                {auth ? pathName.startsWith("/dashboard") ? `Haritra Dashboard` : `Haritra` : `haritra-ai`}
               </h1>
             </div>
             {false && auth && <div className="hidden md:block ml-10 space-x-4">

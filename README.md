@@ -78,7 +78,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 Send a POST request to `/detect` with an image file:
 
 ```bash
-curl -X POST -F "file=@plant.jpg" http://plantcare-ai.vercel.app/detect
+curl -X POST -F "file=@plant.jpg" http://haritra-ai.vercel.app/detect
 ```
 
 ### Response Format

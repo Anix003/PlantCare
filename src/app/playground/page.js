@@ -277,7 +277,7 @@ export default function PlantDiseaseDetector() {
             </div>
           </div>
           <h1 className="text-5xl md:text-6xl font-extrabold mb-4 bg-gradient-to-r from-green-700 via-emerald-600 to-teal-600 bg-clip-text text-transparent">
-            PlantCare AI
+            Haritra AI
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
             Advanced plant health analysis powered by artificial intelligence
